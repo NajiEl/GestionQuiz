@@ -118,17 +118,7 @@ CREATE TABLE question_var(
 )ENGINE=InnoDB;
 
 
-#------------------------------------------------------------
-# Table: reponse_Varianate
-#------------------------------------------------------------
 
-CREATE TABLE reponse_Varianate(
-        id_repVar  int (11) Auto_increment  NOT NULL ,
-        pos_rep    Int ,
-        id_quesVar Int ,
-        code       Int ,
-        PRIMARY KEY (id_repVar )
-)ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
@@ -149,7 +139,5 @@ ALTER TABLE quizz ADD CONSTRAINT FK_quizz_id_auteur FOREIGN KEY (id_auteur) REFE
 ALTER TABLE quizz_Variante ADD CONSTRAINT FK_quizz_Variante_id_quizz FOREIGN KEY (id_quizz) REFERENCES quizz(id_quizz);
 ALTER TABLE question_var ADD CONSTRAINT FK_question_var_id_qv FOREIGN KEY (id_qv) REFERENCES quizz_Variante(id_qv);
 ALTER TABLE question_var ADD CONSTRAINT FK_question_var_id_question FOREIGN KEY (id_question) REFERENCES question(id_question);
-ALTER TABLE reponse_Varianate ADD CONSTRAINT FK_reponse_Varianate_id_quesVar FOREIGN KEY (id_quesVar) REFERENCES question_var(id_quesVar);
-ALTER TABLE reponse_Varianate ADD CONSTRAINT FK_reponse_Varianate_code FOREIGN KEY (code) REFERENCES reponse(code);
 ALTER TABLE avoir ADD CONSTRAINT FK_avoir_id_question FOREIGN KEY (id_question) REFERENCES question(id_question);
 ALTER TABLE avoir ADD CONSTRAINT FK_avoir_code FOREIGN KEY (code) REFERENCES reponse(code);
